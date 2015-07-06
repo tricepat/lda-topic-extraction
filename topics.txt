@@ -1,0 +1,15 @@
+Topic 0
+	nice, pizza, big, eat, friendly
+
+Topic 1
+	ordered, bar, chicken, wait, cheese
+
+Topic 2
+	menu, service, chicken, stars, scottsdale
+
+Topic 3
+	service, find, order, lunch, fresh
+
+Topic 4
+	service, order, ordered, people, menu
+
