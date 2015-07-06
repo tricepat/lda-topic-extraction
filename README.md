@@ -13,4 +13,37 @@ In the absence of access to the Homepolish dataset, I used Yelp restaurant revie
 
 In this implementation, the vocabulary is composed of words in the reviews. Each review represents a document and each document has a specific distribution of topics. Each word in a document is then a result of this distribution. The LDA model is used over the Yelp restaurant reviews to identify topics and topic distributions.
 
-Running "extract_subtopics.rb" with an integer input argument specifiying the number of topics to identify with LDA creates an LDA model based on the training data "reviews_training.json." and outputs a file "topics.txt" containing the top words (number specified by a constant in the script) in each numbered topic cluster. Based on these words, we can map each topic number to a label such as "Rustic," so that when the model is used on new text (testing data) the topic can be identified. Please keep in mind that the LDA model does take some time to build (~10 minutes).
+Running "extract_topics.rb" with an integer input argument specifiying the number of topics to identify with LDA creates an LDA model based on the training data "reviews_training.json" and outputs a file "topics.txt" containing the top x words (specified by a constant in the script) in each numbered topic cluster. Based on these words, we can map each topic number to a label such as "Rustic," so that when the model is used on new text (testing data) the topic can be identified. Please keep in mind that the LDA model does take some time to build (~10 minutes).
+
+# Results
+"topics.txt" contains the results of running the algorithm on eight topics with a dataset of 12,023 entries. Below are the contents, with my tentative labels for each topic.
+
+Topic 0 (Asian)
+	chicken, sushi, rice, thai, lunch
+
+Topic 1 (Service)
+	service, order, minutes, table, ordered
+
+Topic 2 (American)
+	burger, fries, burgers, bbq, sauce
+
+Topic 3 (Mexican)
+	breakfast, mexican, tacos, salsa, chips
+
+Topic 4 (Italian)
+	pizza, sauce, crust, fresh, italian
+
+Topic 5 (Wine)
+	wine, service, menu, dinner, ordered
+
+Topic 6 (Happy hour)
+	bar, happy, hour, beer, service
+
+Topic 7 (Lunch)
+	sandwich, salad, chicken, cheese, lunch
+
+These particular results demonstrate that the restaurant reviews are heavily based on cuisine. Additionally, it reveals what customers care about at different restaurant types and occasions. For example, the fact that "wine" and "service" are two top words of the same topic suggests that customers put greater emphasis on service at a restaurant serving wine than at, for example, a restaurant serving burgers. 
+
+We can even take this one step further by noticing that "service" also appears in the topic I've labeled "Happy hour," which suggests that customers generally care more about service at restaurants that serve alcohol.
+
+

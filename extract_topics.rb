@@ -9,6 +9,9 @@ NUM_TOP_WORDS = 5
 raise(ArgumentError, "This script takes a single integer greater than zero as an argument that specifies the number of topics to identify with LDA") unless (ARGV[0] && (ARGV[0].to_i > 0))
 num_topics = ARGV[0].to_i
 
+# create an LDA object for training
+corpus = Lda::Corpus.new
+
 # extract text from each review in JSON and preprocess to remove additional stopwords (common stopwords will be removed by the LDA module when building the corpus)
 reviews = "" # contains all preprocessed review text
 File.open("data/reviews_training.json", "r") do |f|
@@ -17,14 +20,12 @@ File.open("data/reviews_training.json", "r") do |f|
     text = review["text"].downcase().split(/[\s,!?.]+/) # tokenize downcased words on spaces and the following punctuation: ,!?.
     filtered_review = []
     text.each {|w| filtered_review << w unless additional_stopwords.include? w.strip()}
-    reviews << filtered_review.join(" ") << "\n"
+    corpus.add_document(Lda::TextDocument.new(corpus, filtered_review.join(" ")))
   end
 end
 
-# create an LDA object for training
-corpus = Lda::Corpus.new
-corpus.add_document(Lda::TextDocument.new(corpus, reviews))
 lda = Lda::Lda.new(corpus)
+lda.verbose = false
 lda.num_topics = num_topics
 lda.em("random") # run EM algorithm using random starting points
 

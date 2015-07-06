@@ -1,15 +1,24 @@
 Topic 0
-	nice, pizza, big, eat, friendly
+	chicken, sushi, rice, thai, lunch
 
 Topic 1
-	ordered, bar, chicken, wait, cheese
+	service, order, minutes, table, ordered
 
 Topic 2
-	menu, service, chicken, stars, scottsdale
+	burger, fries, burgers, bbq, sauce
 
 Topic 3
-	service, find, order, lunch, fresh
+	breakfast, mexican, tacos, salsa, chips
 
 Topic 4
-	service, order, ordered, people, menu
+	pizza, sauce, crust, fresh, italian
+
+Topic 5
+	wine, service, menu, dinner, ordered
+
+Topic 6
+	bar, happy, hour, beer, service
+
+Topic 7
+	sandwich, salad, chicken, cheese, lunch
 
