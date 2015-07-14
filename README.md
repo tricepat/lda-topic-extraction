@@ -13,10 +13,10 @@ In the absence of access to the Homepolish dataset, I used Yelp restaurant revie
 
 In this implementation, the vocabulary is composed of words in the reviews. Each review represents a document and each document has a specific distribution of topics. Each word in a document is then a result of this distribution. The LDA model is used over the Yelp restaurant reviews to identify topics and topic distributions.
 
-Running "extract_topics.rb" with an integer input argument specifiying the number of topics to identify with LDA creates an LDA model based on the training data "reviews_training.json" and outputs a file "topics.txt" containing the top x words (specified by a constant in the script) in each numbered topic cluster. Based on these words, we can map each topic number to a label such as "Rustic," so that when the model is used on new text (testing data) the topic can be identified. Please keep in mind that the LDA model does take some time to build (~10 minutes).
+Running "extract_topics.rb" with 1) a non-zero positive integer that specifies the number of topics to identify, 2) the filename of the input data, and 3) the filename of the topics output creates an LDA model based on the input data (which should be in the data directory) and outputs a file containing the top x words (specified by a constant in the script) in each numbered topic cluster. Based on these words, we can map each topic number to a label such as "Rustic," so that when the model is used on new text (testing data) the topic can be identified. Please keep in mind that the LDA model does take some time to build.
 
 # Results
-"topics.txt" contains the results of running the algorithm on eight topics with a dataset of 12,023 entries. Below are the contents, with my tentative labels for each topic.
+"topics.txt" contains the results of running the algorithm on eight topics with a dataset "reviews_training.json," which has 12,023 entries. Below are the contents, with my tentative labels for each topic.
 
 Topic 0 (Asian)
 	chicken, sushi, rice, thai, lunch
